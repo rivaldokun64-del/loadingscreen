@@ -1,32 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loading...</title>
+
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background: #e9fff1; /* hijau muda */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
 
-.loader {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 6px solid rgba(0, 128, 0, 0.2);
-    border-top-color: #2e7d32;
-    animation: spin 1s linear infinite;
-}
+    .loader-container {
+        text-align: center;
+        color: #2a8c4a;
+    }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
+    .circle {
+        width: 70px;
+        height: 70px;
+        border: 6px solid #b7ffd1;
+        border-top-color: #2a8c4a;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: auto;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .text {
+        margin-top: 18px;
+        font-size: 20px;
+        letter-spacing: 1px;
+        animation: fade 1.6s infinite alternate;
+    }
+
+    @keyframes fade {
+        from { opacity: 0.4; }
+        to { opacity: 1; }
+    }
 </style>
 </head>
 <body>
-<div class="loader"></div>
+
+<div class="loader-container">
+    <div class="circle"></div>
+    <div class="text">Loading...</div>
+</div>
+
+<script>
+    setTimeout(() => {
+        window.location.href = "beranda.html"; 
+        // ganti sesuai nama file halaman beranda
+    }, 2500); // durasi loading 2.5 detik
+</script>
+
 </body>
 </html>
