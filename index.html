@@ -9,39 +9,50 @@
     body {
         margin: 0;
         padding: 0;
-        background: #e9fff1; /* hijau muda */
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        font-family: Arial, sans-serif;
+        background: #ccf2d1; /* hijau muda lembut */
         overflow: hidden;
+        font-family: Arial, sans-serif;
     }
 
-    .loader-container {
-        text-align: center;
-        color: #2a8c4a;
-    }
-
-    .circle {
-        width: 70px;
-        height: 70px;
-        border: 6px solid #b7ffd1;
-        border-top-color: #2a8c4a;
+    .loader {
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
+        border: 6px solid transparent;
+        border-top: 6px solid #2e7d32; /* hijau gelap */
         animation: spin 1s linear infinite;
-        margin: auto;
+        position: relative;
+    }
+
+    .loader::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        border-radius: 50%;
+        border: 6px solid transparent;
+        border-top: 6px solid #5dbf62;
+        animation: spin 1.5s linear infinite;
     }
 
     @keyframes spin {
+        from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
 
     .text {
-        margin-top: 18px;
-        font-size: 20px;
-        letter-spacing: 1px;
-        animation: fade 1.6s infinite alternate;
+        position: absolute;
+        top: 65%;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2e7d32;
+        animation: fade 1.5s infinite alternate;
     }
 
     @keyframes fade {
@@ -49,20 +60,12 @@
         to { opacity: 1; }
     }
 </style>
+
 </head>
 <body>
 
-<div class="loader-container">
-    <div class="circle"></div>
-    <div class="text">Loading...</div>
-</div>
-
-<script>
-    setTimeout(() => {
-        window.location.href = "beranda.html"; 
-        // ganti sesuai nama file halaman beranda
-    }, 2500); // durasi loading 2.5 detik
-</script>
+<div class="loader"></div>
+<div class="text">Loading...</div>
 
 </body>
 </html>
